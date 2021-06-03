@@ -1,0 +1,103 @@
+﻿<UserControl
+    x:Class="XIVEVENT.Controls.EventItemEdit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:properties="clr-namespace:XIVEVENT.Properties"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:viewModels="clr-namespace:XIVEVENT.ViewModels"
+    xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+    Width="320"
+    d:DesignHeight="300"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <CheckBox
+                Content="{Binding Locale[EventItem_EventEnabledText], Source={StaticResource AppViewModel}}"
+                Foreground="{DynamicResource MaterialDesignBody}"
+                IsChecked="{Binding IsEnabled}"
+                Style="{StaticResource MaterialDesignCheckBox}" />
+            <TextBox
+                wpf:HintAssist.HelperText="{Binding Locale[EventItem_CategoryText], Source={StaticResource AppViewModel}}"
+                Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding Category}" />
+            <TextBox
+                wpf:HintAssist.HelperText="{Binding Locale[EventItem_RegularExpressionText], Source={StaticResource AppViewModel}}"
+                Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding RegEx}" />
+            <ComboBox
+                Margin="0,20,0,10"
+                wpf:HintAssist.HelperText="{Binding Locale[EventItem_SoundText], Source={StaticResource AppViewModel}}"
+                DisplayMemberPath="Name"
+                ItemsSource="{Binding AudioFiles, Source={x:Static viewModels:AppViewModel.Instance}}"
+                SelectedValue="{Binding Sound}"
+                SelectedValuePath="Name" />
+            <TextBlock
+                Margin="0,24,0,-20"
+                Text="{Binding Locale[EventItem_VolumeText], Source={StaticResource AppViewModel}}" />
+            <Slider
+                Margin="0,20,0,0"
+                wpf:SliderAssist.OnlyShowFocusVisualWhileDragging="True"
+                IsSelectionRangeEnabled="False"
+                IsSnapToTickEnabled="True"
+                Maximum="100"
+                Minimum="0"
+                Orientation="Horizontal"
+                Style="{StaticResource MaterialDesignDiscreteHorizontalSlider}"
+                TickFrequency="5"
+                TickPlacement="BottomRight"
+                ToolTip="Volume"
+                Value="{Binding Volume}" />
+            <TextBlock
+                Margin="0,24,0,-20"
+                Text="{Binding Locale[EventItem_SpeechRateText], Source={StaticResource AppViewModel}}" />
+            <Slider
+                Margin="0,20,0,0"
+                wpf:SliderAssist.OnlyShowFocusVisualWhileDragging="True"
+                IsSelectionRangeEnabled="False"
+                IsSnapToTickEnabled="True"
+                Maximum="10"
+                Minimum="-10"
+                Orientation="Horizontal"
+                Style="{StaticResource MaterialDesignDiscreteHorizontalSlider}"
+                TickFrequency="1"
+                TickPlacement="BottomRight"
+                ToolTip="Speech Rate"
+                Value="{Binding SpeechRate}" />
+            <TextBox
+                wpf:HintAssist.HelperText="{Binding Locale[EventItem_TTSMessageText], Source={StaticResource AppViewModel}}"
+                Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding TTSMessage}" />
+            <TextBox
+                wpf:HintAssist.HelperText="{Binding Locale[EventItem_ExecutablePathText], Source={StaticResource AppViewModel}}"
+                Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding ExecutablePath}" />
+            <TextBox
+                wpf:HintAssist.HelperText="{Binding Locale[EventItem_ExecutableArgumentsText], Source={StaticResource AppViewModel}}"
+                Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding ExecutableArguments}" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="1"
+            Margin="0,16,0,0"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                Command="{x:Static wpf:DialogHost.CloseDialogCommand}"
+                IsDefault="True"
+                Style="{DynamicResource MaterialDesignFlatButton}">
+                <Button.CommandParameter>
+                    <system:Boolean>True</system:Boolean>
+                </Button.CommandParameter>
+                OK
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Events>
+	<Event Key="e8a6dca3-a0db-469d-846a-bffc1e8ab2c8">
+		<RegEx>The scout vulture readies Wing Cutter.</RegEx>
+		<Sound>aruba.wav</Sound>
+		<TTS></TTS>
+		<Volume>100</Volume>
+		<Delay>0</Delay>
+		<Category>Miscellaneous</Category>
+		<IsEnabled>False</IsEnabled>
+		<SpeechRate>-2</SpeechRate>
+		<TTSMessage></TTSMessage>
+		<ExecutablePath></ExecutablePath>
+		<ExecutableArguments></ExecutableArguments>
+	</Event>
+</Events>

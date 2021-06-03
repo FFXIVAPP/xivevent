@@ -1,0 +1,151 @@
+﻿<UserControl
+    x:Class="XIVEVENT.Controls.SoundSettings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:XIVEVENT.Controls"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:properties="clr-namespace:XIVEVENT.Properties"
+    xmlns:viewModels="clr-namespace:XIVEVENT.ViewModels"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--  note you only need bring in these extra resource dictionaries when using non-default styles, so only bring them into your controls where the default style is not what you want  -->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Slider.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <materialDesign:Card
+                Margin="0,2"
+                Padding="2"
+                Background="{DynamicResource PrimaryHueMidBrush}"
+                Foreground="{DynamicResource PrimaryHueMidForegroundBrush}">
+                <StackPanel>
+                    <TextBlock
+                        Margin="8"
+                        FontSize="16"
+                        Text="{Binding Locale[SoundSettings_VolumeSettingsText], Source={StaticResource AppViewModel}}" />
+                </StackPanel>
+            </materialDesign:Card>
+            <TextBlock
+                Margin="0,10"
+                Foreground="{DynamicResource MaterialDesignBody}"
+                Text="{Binding Locale[SoundSettings_AdjustmentText], Source={StaticResource AppViewModel}}" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    Margin="0,2,5,2"
+                    Padding="8,0"
+                    Command="{Binding TestAudioFilesCommand}"
+                    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                    ToolTip="{Binding Locale[SoundSettings_TestAudioText], Source={StaticResource AppViewModel}}">
+                    <materialDesign:PackIcon Kind="PlayArrow" />
+                </Button>
+                <Slider
+                    Grid.Column="1"
+                    materialDesign:SliderAssist.OnlyShowFocusVisualWhileDragging="True"
+                    IsSelectionRangeEnabled="False"
+                    IsSnapToTickEnabled="True"
+                    Maximum="100"
+                    Minimum="0"
+                    Orientation="Horizontal"
+                    Style="{StaticResource MaterialDesignDiscreteHorizontalSlider}"
+                    TickFrequency="5"
+                    TickPlacement="BottomRight"
+                    ToolTip="{Binding Locale[SoundSettings_MasterVolumeText], Source={StaticResource AppViewModel}}"
+                    Value="{Binding MasterVolume, Mode=TwoWay, Source={x:Static properties:Settings.Default}}" />
+            </Grid>
+            <materialDesign:Card
+                Margin="0,2"
+                Padding="2"
+                Background="{DynamicResource PrimaryHueMidBrush}"
+                Foreground="{DynamicResource PrimaryHueMidForegroundBrush}">
+                <StackPanel>
+                    <TextBlock
+                        Margin="8"
+                        FontSize="16"
+                        Text="{Binding Locale[SoundSettings_AudioDevicesText], Source={StaticResource AppViewModel}}" />
+                </StackPanel>
+            </materialDesign:Card>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    Margin="0,2,5,2"
+                    Padding="8,0"
+                    Command="{Binding RefreshAudioDevicesCommand}"
+                    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                    ToolTip="{Binding Locale[SoundSettings_RefreshDevicesText], Source={StaticResource AppViewModel}}">
+                    <materialDesign:PackIcon Kind="Refresh" />
+                </Button>
+                <ComboBox
+                    Grid.Column="1"
+                    Margin="0,2"
+                    DisplayMemberPath="Description"
+                    Foreground="{DynamicResource MaterialDesignBody}"
+                    ItemsSource="{Binding SystemAudioDevices, Source={x:Static viewModels:AppViewModel.Instance}}"
+                    SelectedItem="{Binding SelectedAudioDevice, Mode=TwoWay}"
+                    SelectedValue="{Binding AudioDevice, Source={x:Static properties:Settings.Default}, Mode=TwoWay}"
+                    SelectedValuePath="Guid" />
+            </Grid>
+            <materialDesign:Card
+                Margin="0,2"
+                Padding="2"
+                Background="{DynamicResource PrimaryHueMidBrush}"
+                Foreground="{DynamicResource PrimaryHueMidForegroundBrush}">
+                <StackPanel>
+                    <TextBlock
+                        Margin="8"
+                        FontSize="16"
+                        Text="{Binding Locale[SoundSettings_AudioFilesText], Source={StaticResource AppViewModel}}" />
+                </StackPanel>
+            </materialDesign:Card>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    Margin="0,2,5,2"
+                    Padding="8,0"
+                    Command="{Binding RefreshAudioFilesCommand}"
+                    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                    ToolTip="{Binding Locale[SoundSettings_RereshFilesText], Source={StaticResource AppViewModel}}">
+                    <materialDesign:PackIcon Kind="Refresh" />
+                </Button>
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="0,10"
+                    Foreground="{DynamicResource MaterialDesignBody}"
+                    Text="{Binding Locale[SoundSettings_FilesText], Source={StaticResource AppViewModel}}" />
+            </Grid>
+        </StackPanel>
+        <DataGrid
+            x:Name="SoundFilesDataGrid"
+            Grid.Row="1"
+            Margin="0,2"
+            Padding="2"
+            CanUserAddRows="False"
+            CanUserDeleteRows="False"
+            ItemsSource="{Binding Source={x:Static viewModels:AppViewModel.Instance}, Path=AudioFiles, Mode=OneWay}"
+            SelectionMode="Extended"
+            SelectionUnit="FullRow" />
+    </Grid>
+</UserControl>
