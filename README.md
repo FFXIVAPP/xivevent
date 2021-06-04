@@ -1,6 +1,6 @@
 # XIVEVENT
 
-Dedicated logging program with built-in language autotranslation using either Google or Cognitive Services (Azure)
+Event program to notify based onr egex and chat codes. You can also run an external program based on events or use TTS speaking.
 
 Written in and requires [NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
 
