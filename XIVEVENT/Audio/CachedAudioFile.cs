@@ -9,12 +9,13 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 namespace XIVEVENT.Audio {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
     using NAudio.Wave;
 
-    public class CachedAudioFile {
+    public class CachedAudioFile : IDisposable {
         public CachedAudioFile(string audioFileName) {
             using AudioFileReader audioFileReader = new AudioFileReader(audioFileName);
             this.WaveFormat = audioFileReader.WaveFormat;
@@ -50,8 +51,18 @@ namespace XIVEVENT.Audio {
             }
         }
 
-        public float[] AudioData { get; }
+        public float[] AudioData { get; private set; }
 
         public WaveFormat WaveFormat { get; }
+
+        public void Dispose() {
+            this.AudioData = null;
+            // this is needed or refreshing audio files won't recover the data fast enough and it will be a growing memory size
+            GC.Collect();
+        }
+
+        ~CachedAudioFile() {
+            this.Dispose();
+        }
     }
 }

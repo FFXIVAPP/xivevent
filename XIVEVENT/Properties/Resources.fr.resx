@@ -264,7 +264,7 @@
   <data name="HomeTabItem_EditEventItemText" xml:space="preserve">
     <value>Modifier les options avancées</value>
   </data>
-  <data name="SettingsTabItem_SoundText" xml:space="preserve">
+  <data name="SettingsTabItem_SoundHeaderText" xml:space="preserve">
     <value>Sonner</value>
   </data>
   <data name="SoundSettings_AdjustmentText" xml:space="preserve">
@@ -272,9 +272,6 @@
   </data>
   <data name="SoundSettings_AudioDevicesText" xml:space="preserve">
     <value>Périphériques audio</value>
-  </data>
-  <data name="SoundSettings_AudioFilesText" xml:space="preserve">
-    <value>Fichiers audio disponibles</value>
   </data>
   <data name="SoundSettings_FilesText" xml:space="preserve">
     <value>Si vous souhaitez disposer de plus de fichiers audio à utiliser, veuillez les placer dans le répertoire racine de cette application.</value>
@@ -299,5 +296,29 @@
   </data>
   <data name="HomeTabItem_SaveChangesText" xml:space="preserve">
     <value>Sauvegarder les modifications</value>
+  </data>
+  <data name="SettingsTabItem_AudioDirectoriesHeaderText" xml:space="preserve">
+    <value>Répertoires audio</value>
+  </data>
+  <data name="SettingsTabItem_AudioFilesHeaderText" xml:space="preserve">
+    <value>Fichiers audio</value>
+  </data>
+  <data name="SoundSettings_AddDirectoryText" xml:space="preserve">
+    <value>Ajouter un répertoire</value>
+  </data>
+  <data name="SoundSettings_DeleteDirectoryText" xml:space="preserve">
+    <value>Supprimer le répertoire</value>
+  </data>
+  <data name="SoundSettings_DirectoriesText" xml:space="preserve">
+    <value>Chaque répertoire est analysé au niveau supérieur. Plus vous avez de fichiers, plus la consommation de mémoire de l'application est importante.</value>
+  </data>
+  <data name="SoundSettings_DirectoryText" xml:space="preserve">
+    <value>Annuaire</value>
+  </data>
+  <data name="SoundSettings_EditDirectoryText" xml:space="preserve">
+    <value>Modifier le répertoire</value>
+  </data>
+  <data name="SoundSettings_FilesText1" xml:space="preserve">
+    <value>Les fichiers sont chargés à partir du niveau des répertoires disponibles.</value>
   </data>
 </root>

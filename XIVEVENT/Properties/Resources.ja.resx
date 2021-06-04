@@ -264,7 +264,7 @@
   <data name="HomeTabItem_EditEventItemText" xml:space="preserve">
     <value>詳細オプションの編集</value>
   </data>
-  <data name="SettingsTabItem_SoundText" xml:space="preserve">
+  <data name="SettingsTabItem_SoundHeaderText" xml:space="preserve">
     <value>音</value>
   </data>
   <data name="SoundSettings_AdjustmentText" xml:space="preserve">
@@ -272,9 +272,6 @@
   </data>
   <data name="SoundSettings_AudioDevicesText" xml:space="preserve">
     <value>オーディオ機器</value>
-  </data>
-  <data name="SoundSettings_AudioFilesText" xml:space="preserve">
-    <value>利用可能なオーディオ ファイル</value>
   </data>
   <data name="SoundSettings_FilesText" xml:space="preserve">
     <value>より多くのオーディオ ファイルを使用できるようにしたい場合は、このアプリケーションのルート ディレクトリにそれらを配置してください。 </value>
@@ -299,5 +296,29 @@
   </data>
   <data name="HomeTabItem_SaveChangesText" xml:space="preserve">
     <value>変更内容を保存</value>
+  </data>
+  <data name="SettingsTabItem_AudioDirectoriesHeaderText" xml:space="preserve">
+    <value>オーディオ ディレクトリ</value>
+  </data>
+  <data name="SettingsTabItem_AudioFilesHeaderText" xml:space="preserve">
+    <value>オーディオ ファイル</value>
+  </data>
+  <data name="SoundSettings_AddDirectoryText" xml:space="preserve">
+    <value>ディレクトリを追加</value>
+  </data>
+  <data name="SoundSettings_DeleteDirectoryText" xml:space="preserve">
+    <value>ディレクトリを削除</value>
+  </data>
+  <data name="SoundSettings_DirectoriesText" xml:space="preserve">
+    <value>各ディレクトリは最上位レベルでスキャンされます。 ファイルが多いほど、アプリケーションのメモリ消費量が多くなります。</value>
+  </data>
+  <data name="SoundSettings_DirectoryText" xml:space="preserve">
+    <value>ディレクトリ</value>
+  </data>
+  <data name="SoundSettings_EditDirectoryText" xml:space="preserve">
+    <value>ディレクトリを編集</value>
+  </data>
+  <data name="SoundSettings_FilesText1" xml:space="preserve">
+    <value>ファイルは、使用可能なディレクトリのレベルからロードされます。 </value>
   </data>
 </root>

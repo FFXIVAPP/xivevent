@@ -264,7 +264,7 @@
   <data name="HomeTabItem_EditEventItemText" xml:space="preserve">
     <value>고급 옵션 편집</value>
   </data>
-  <data name="SettingsTabItem_SoundText" xml:space="preserve">
+  <data name="SettingsTabItem_SoundHeaderText" xml:space="preserve">
     <value>소리</value>
   </data>
   <data name="SoundSettings_AdjustmentText" xml:space="preserve">
@@ -272,9 +272,6 @@
   </data>
   <data name="SoundSettings_AudioDevicesText" xml:space="preserve">
     <value>오디오 장치</value>
-  </data>
-  <data name="SoundSettings_AudioFilesText" xml:space="preserve">
-    <value>사용 가능한 오디오 파일</value>
   </data>
   <data name="SoundSettings_FilesText" xml:space="preserve">
     <value>더 많은 오디오 파일을 사용하려면이 응용 프로그램의 루트 디렉토리에 저장하십시오. </value>
@@ -299,5 +296,29 @@
   </data>
   <data name="HomeTabItem_SaveChangesText" xml:space="preserve">
     <value>변경 사항을 저장하다</value>
+  </data>
+  <data name="SettingsTabItem_AudioDirectoriesHeaderText" xml:space="preserve">
+    <value>오디오 디렉토리</value>
+  </data>
+  <data name="SettingsTabItem_AudioFilesHeaderText" xml:space="preserve">
+    <value>오디오 파일</value>
+  </data>
+  <data name="SoundSettings_AddDirectoryText" xml:space="preserve">
+    <value>디렉토리 추가</value>
+  </data>
+  <data name="SoundSettings_DeleteDirectoryText" xml:space="preserve">
+    <value>디렉토리 삭제</value>
+  </data>
+  <data name="SoundSettings_DirectoriesText" xml:space="preserve">
+    <value>각 디렉터리는 최상위 수준에서 검색됩니다. 파일이 많을수록 응용 프로그램의 메모리 사용량이 많아집니다.</value>
+  </data>
+  <data name="SoundSettings_DirectoryText" xml:space="preserve">
+    <value>예배 규칙서</value>
+  </data>
+  <data name="SoundSettings_EditDirectoryText" xml:space="preserve">
+    <value>디렉토리 편집</value>
+  </data>
+  <data name="SoundSettings_FilesText1" xml:space="preserve">
+    <value>파일은 사용 가능한 디렉토리 수준에서로드됩니다. </value>
   </data>
 </root>

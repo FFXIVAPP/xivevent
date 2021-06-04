@@ -82,5 +82,9 @@
     <Setting Name="AudioDevice" Type="System.Guid" Scope="User">
       <Value Profile="(Default)">00000000-0000-0000-0000-000000000000</Value>
     </Setting>
+    <Setting Name="AudioCacheDirectories" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /&gt;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

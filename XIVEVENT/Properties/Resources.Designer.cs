@@ -385,6 +385,24 @@ namespace XIVEVENT.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Audio Directories.
+        /// </summary>
+        public static string SettingsTabItem_AudioDirectoriesHeaderText {
+            get {
+                return ResourceManager.GetString("SettingsTabItem_AudioDirectoriesHeaderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Audio Files.
+        /// </summary>
+        public static string SettingsTabItem_AudioFilesHeaderText {
+            get {
+                return ResourceManager.GetString("SettingsTabItem_AudioFilesHeaderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Chat Codes.
         /// </summary>
         public static string SettingsTabItem_ChatCodesTabHeaderText {
@@ -405,9 +423,9 @@ namespace XIVEVENT.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Sound.
         /// </summary>
-        public static string SettingsTabItem_SoundText {
+        public static string SettingsTabItem_SoundHeaderText {
             get {
-                return ResourceManager.GetString("SettingsTabItem_SoundText", resourceCulture);
+                return ResourceManager.GetString("SettingsTabItem_SoundHeaderText", resourceCulture);
             }
         }
         
@@ -417,6 +435,15 @@ namespace XIVEVENT.Properties {
         public static string SettingsTabItem_ThemeTabHeaderText {
             get {
                 return ResourceManager.GetString("SettingsTabItem_ThemeTabHeaderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Directory.
+        /// </summary>
+        public static string SoundSettings_AddDirectoryText {
+            get {
+                return ResourceManager.GetString("SoundSettings_AddDirectoryText", resourceCulture);
             }
         }
         
@@ -439,16 +466,43 @@ namespace XIVEVENT.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Available Audio Files.
+        ///   Looks up a localized string similar to Delete Directory.
         /// </summary>
-        public static string SoundSettings_AudioFilesText {
+        public static string SoundSettings_DeleteDirectoryText {
             get {
-                return ResourceManager.GetString("SoundSettings_AudioFilesText", resourceCulture);
+                return ResourceManager.GetString("SoundSettings_DeleteDirectoryText", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If you want to have more audio files available to use please place them in the root directory of this application..
+        ///   Looks up a localized string similar to Each directory is top level scanned. The more files you have the greater the memory consumption of the application..
+        /// </summary>
+        public static string SoundSettings_DirectoriesText {
+            get {
+                return ResourceManager.GetString("SoundSettings_DirectoriesText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Directory.
+        /// </summary>
+        public static string SoundSettings_DirectoryText {
+            get {
+                return ResourceManager.GetString("SoundSettings_DirectoryText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Directory.
+        /// </summary>
+        public static string SoundSettings_EditDirectoryText {
+            get {
+                return ResourceManager.GetString("SoundSettings_EditDirectoryText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Files are loaded from the level of available directories..
         /// </summary>
         public static string SoundSettings_FilesText {
             get {

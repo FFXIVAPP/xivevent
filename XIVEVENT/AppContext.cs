@@ -91,7 +91,7 @@ namespace XIVEVENT {
         }
 
         private void SetupAudio() {
-            // load sound cache
+            AppViewModel.Instance.RefreshAudioCacheDirectories();
             AppViewModel.Instance.RefreshAudioCache();
             AppViewModel.Instance.RefreshAudioDevices();
         }

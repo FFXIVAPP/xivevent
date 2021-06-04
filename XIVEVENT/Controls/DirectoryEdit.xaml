@@ -1,0 +1,51 @@
+﻿<UserControl
+    x:Class="XIVEVENT.Controls.DirectoryEdit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:properties="clr-namespace:XIVEVENT.Properties"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:viewModels="clr-namespace:XIVEVENT.ViewModels"
+    xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+    Width="320"
+    d:DesignHeight="300"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBox
+                wpf:HintAssist.HelperText="{Binding Locale[SoundSettings_DirectoryText], Source={StaticResource AppViewModel}}"
+                Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                Text="{Binding Current}" />
+        </StackPanel>
+        <StackPanel
+            Grid.Row="1"
+            Margin="0,16,0,0"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                Command="{x:Static wpf:DialogHost.CloseDialogCommand}"
+                Style="{DynamicResource MaterialDesignFlatButton}">
+                <Button.CommandParameter>
+                    <system:Boolean>False</system:Boolean>
+                </Button.CommandParameter>
+                CANCEL
+            </Button>
+            <Button
+                Command="{x:Static wpf:DialogHost.CloseDialogCommand}"
+                IsDefault="True"
+                Style="{DynamicResource MaterialDesignFlatButton}">
+                <Button.CommandParameter>
+                    <system:Boolean>True</system:Boolean>
+                </Button.CommandParameter>
+                OK
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

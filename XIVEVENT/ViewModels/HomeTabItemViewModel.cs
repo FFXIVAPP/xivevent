@@ -49,7 +49,7 @@ namespace XIVEVENT.ViewModels {
                     };
 
                     //show the dialog
-                    await DialogHost.Show(view, "RootDialog", null, this.ExtendedClosingEventHandler);
+                    await DialogHost.Show(view, "RootDialog", null, this.EditEventItem_ClosingEventHandler);
                 });
         }
 
@@ -63,7 +63,7 @@ namespace XIVEVENT.ViewModels {
 
         public DelegatedCommand DeleteEventItemCommand { get; }
 
-        private void ExtendedClosingEventHandler(object sender, DialogClosingEventArgs e) {
+        private void EditEventItem_ClosingEventHandler(object sender, DialogClosingEventArgs e) {
             if (e.Parameter is bool and false) {
                 return;
             }

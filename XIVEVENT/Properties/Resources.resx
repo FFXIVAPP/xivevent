@@ -273,7 +273,7 @@
   <data name="HomeTabItem_EditEventItemText" xml:space="preserve">
     <value>Edit Advanced Options</value>
   </data>
-  <data name="SettingsTabItem_SoundText" xml:space="preserve">
+  <data name="SettingsTabItem_SoundHeaderText" xml:space="preserve">
     <value>Sound</value>
   </data>
   <data name="SoundSettings_AdjustmentText" xml:space="preserve">
@@ -282,11 +282,11 @@
   <data name="SoundSettings_AudioDevicesText" xml:space="preserve">
     <value>Audio Devices</value>
   </data>
-  <data name="SoundSettings_AudioFilesText" xml:space="preserve">
-    <value>Available Audio Files</value>
+  <data name="SettingsTabItem_AudioFilesHeaderText" xml:space="preserve">
+    <value>Audio Files</value>
   </data>
   <data name="SoundSettings_FilesText" xml:space="preserve">
-    <value>If you want to have more audio files available to use please place them in the root directory of this application.</value>
+    <value>Files are loaded from the level of available directories.</value>
   </data>
   <data name="SoundSettings_MasterVolumeText" xml:space="preserve">
     <value>Master Volume</value>
@@ -302,5 +302,23 @@
   </data>
   <data name="SoundSettings_VolumeSettingsText" xml:space="preserve">
     <value>Volume Settings</value>
+  </data>
+  <data name="SoundSettings_AddDirectoryText" xml:space="preserve">
+    <value>Add Directory</value>
+  </data>
+  <data name="SettingsTabItem_AudioDirectoriesHeaderText" xml:space="preserve">
+    <value>Audio Directories</value>
+  </data>
+  <data name="SoundSettings_DeleteDirectoryText" xml:space="preserve">
+    <value>Delete Directory</value>
+  </data>
+  <data name="SoundSettings_DirectoryText" xml:space="preserve">
+    <value>Directory</value>
+  </data>
+  <data name="SoundSettings_EditDirectoryText" xml:space="preserve">
+    <value>Edit Directory</value>
+  </data>
+  <data name="SoundSettings_DirectoriesText" xml:space="preserve">
+    <value>Each directory is top level scanned. The more files you have the greater the memory consumption of the application.</value>
   </data>
 </root>

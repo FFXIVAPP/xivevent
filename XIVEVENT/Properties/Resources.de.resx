@@ -264,20 +264,11 @@
   <data name="HomeTabItem_EditEventItemText" xml:space="preserve">
     <value>Erweiterte Optionen bearbeiten</value>
   </data>
-  <data name="SettingsTabItem_SoundText" xml:space="preserve">
-    <value>Klang</value>
-  </data>
   <data name="SoundSettings_AdjustmentText" xml:space="preserve">
     <value>Passen Sie den globalen Lautstärkepegel an. Dies wird auch auf einzelne Schallpegel angewendet.</value>
   </data>
   <data name="SoundSettings_AudioDevicesText" xml:space="preserve">
     <value>Audiogeräte</value>
-  </data>
-  <data name="SoundSettings_AudioFilesText" xml:space="preserve">
-    <value>Verfügbare Audiodateien</value>
-  </data>
-  <data name="SoundSettings_FilesText" xml:space="preserve">
-    <value>Wenn Sie mehr Audiodateien zur Verfügung haben möchten, legen Sie diese bitte im Stammverzeichnis dieser Anwendung ab. </value>
   </data>
   <data name="SoundSettings_MasterVolumeText" xml:space="preserve">
     <value>Master-Lautstärke</value>
@@ -299,5 +290,32 @@
   </data>
   <data name="HomeTabItem_SaveChangesText" xml:space="preserve">
     <value>Änderungen speichern</value>
+  </data>
+  <data name="SettingsTabItem_AudioDirectoriesHeaderText" xml:space="preserve">
+    <value>Audioverzeichnisse</value>
+  </data>
+  <data name="SettingsTabItem_AudioFilesHeaderText" xml:space="preserve">
+    <value>Audiodateien</value>
+  </data>
+  <data name="SettingsTabItem_SoundHeaderText" xml:space="preserve">
+    <value>Klang</value>
+  </data>
+  <data name="SoundSettings_AddDirectoryText" xml:space="preserve">
+    <value>Verzeichnis hinzufügen</value>
+  </data>
+  <data name="SoundSettings_DeleteDirectoryText" xml:space="preserve">
+    <value>Verzeichnis löschen</value>
+  </data>
+  <data name="SoundSettings_DirectoriesText" xml:space="preserve">
+    <value>Jedes Verzeichnis wird auf oberster Ebene gescannt. Je mehr Dateien Sie haben, desto höher ist der Speicherverbrauch der Anwendung.</value>
+  </data>
+  <data name="SoundSettings_DirectoryText" xml:space="preserve">
+    <value>Verzeichnis</value>
+  </data>
+  <data name="SoundSettings_EditDirectoryText" xml:space="preserve">
+    <value>Verzeichnis bearbeiten</value>
+  </data>
+  <data name="SoundSettings_FilesText" xml:space="preserve">
+    <value>Dateien werden von der Ebene der verfügbaren Verzeichnisse geladen. </value>
   </data>
 </root>

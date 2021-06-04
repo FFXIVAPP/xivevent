@@ -12,7 +12,9 @@
     mc:Ignorable="d">
 
     <UserControl.Resources>
-        <Style BasedOn="{StaticResource MaterialDesignTextBox}" TargetType="{x:Type TextBox}">
+        <Style
+            BasedOn="{StaticResource MaterialDesignTextBox}"
+            TargetType="{x:Type TextBox}">
             <Setter Property="Margin" Value="8,0,8,16" />
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
@@ -33,7 +35,9 @@
                         Text="{Binding Locale[UserSettings_DataSettingsText], Source={StaticResource AppViewModel}}" />
                 </StackPanel>
             </materialDesign:Card>
-            <StackPanel Margin="0,5" Orientation="Horizontal">
+            <StackPanel
+                Margin="0,5"
+                Orientation="Horizontal">
                 <ToggleButton
                     Margin="2,8,8,8"
                     Cursor="Hand"
@@ -43,7 +47,9 @@
                     Foreground="{DynamicResource MaterialDesignBody}"
                     Text="{Binding Locale[UserSettings_UseCachedDataText], Source={StaticResource AppViewModel}}" />
             </StackPanel>
-            <StackPanel Margin="0,2" HorizontalAlignment="Left">
+            <StackPanel
+                Margin="0,2"
+                HorizontalAlignment="Left">
                 <Button
                     x:Name="ResetSettingsButton"
                     Command="{Binding ResetSettingsCommand}"

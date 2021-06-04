@@ -31,8 +31,6 @@
         <DataGrid
             x:Name="ChatCodesDataGrid"
             Grid.Row="0"
-            Margin="0,2"
-            Padding="2"
             CanUserAddRows="False"
             CanUserDeleteRows="False"
             CanUserReorderColumns="False"
@@ -45,8 +43,12 @@
             Margin="0,2"
             Command="{Binding SaveChatCodesCommand}"
             Style="{StaticResource MaterialDesignRaisedAccentButton}">
-            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                <materialDesign:PackIcon Margin="0,0,5,0" Kind="ZipDisk" />
+            <StackPanel
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <materialDesign:PackIcon
+                    Margin="0,0,5,0"
+                    Kind="ZipDisk" />
                 <TextBlock Text="{Binding Locale[ChatCodes_SaveChangesText], Source={StaticResource AppViewModel}}" />
             </StackPanel>
         </Button>

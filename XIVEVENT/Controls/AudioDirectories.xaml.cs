@@ -1,10 +1,10 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SoundSettings.xaml.cs">
+// <copyright file="AudioDirectories.xaml.cs">
 //   Copyright© 2021 Ryan Wilson
 //   Licensed under the MIT license. See LICENSE.md in the solution root for full license information.
 // </copyright>
 // <summary>
-//   SoundSettings.xaml.cs Implementation
+//   AudioDirectories.xaml.cs Implementation
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
@@ -14,17 +14,13 @@ namespace XIVEVENT.Controls {
     using XIVEVENT.ViewModels;
 
     /// <summary>
-    /// Interaction logic for SoundSettings.xaml
+    /// Interaction logic for AudioDirectories.xaml
     /// </summary>
-    public partial class SoundSettings : UserControl {
-        public static SoundSettings Instance;
-
-        public SoundSettings() {
+    public partial class AudioDirectories : UserControl {
+        public AudioDirectories() {
             this.InitializeComponent();
 
-            Instance = this;
-
-            this.DataContext = SoundSettingsViewModel.Instance;
+            this.DataContext = AudioDirectoriesViewModel.Instance;
         }
     }
 }

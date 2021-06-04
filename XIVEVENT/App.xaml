@@ -18,18 +18,17 @@
                     ColorAdjustment="{materialDesign:ColorAdjustment}"
                     PrimaryColor="Red"
                     SecondaryColor="Orange" />
-                <ResourceDictionary
-                    Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <!-- <ResourceDictionary Source="pack://application:,,,/MaterialDesignExtensions;component/Themes/Generic.xaml" /> -->
 
             </ResourceDictionary.MergedDictionaries>
 
-            <Style x:Key="MaterialDesignTabControl" TargetType="{x:Type TabControl}">
+            <Style
+                x:Key="MaterialDesignTabControl"
+                TargetType="{x:Type TabControl}">
                 <Setter Property="controls:TabControlAssist.TabHeaderHorizontalAlignment" Value="Left" />
-                <Setter Property="controls:TabControlAssist.TabHeaderHighlightBrush"
-                        Value="{DynamicResource PrimaryHueMidBrush}" />
-                <Setter Property="controls:TabControlAssist.TabHeaderInactiveBrush"
-                        Value="{DynamicResource MaterialDesignBodyLight}" />
+                <Setter Property="controls:TabControlAssist.TabHeaderHighlightBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
+                <Setter Property="controls:TabControlAssist.TabHeaderInactiveBrush" Value="{DynamicResource MaterialDesignBodyLight}" />
                 <Setter Property="controls:TabControlAssist.TabHeaderInactiveOpacity" Value="1" />
                 <Setter Property="Background" Value="Transparent" />
                 <Setter Property="Template">
@@ -46,14 +45,22 @@
                                                         <DoubleAnimationUsingKeyFrames
                                                             Storyboard.TargetName="clickBorder"
                                                             Storyboard.TargetProperty="Opacity">
-                                                            <DiscreteDoubleKeyFrame KeyTime="0" Value="0" />
-                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="0.12">
+                                                            <DiscreteDoubleKeyFrame
+                                                                KeyTime="0"
+                                                                Value="0" />
+                                                            <EasingDoubleKeyFrame
+                                                                KeyTime="0:0:0.15"
+                                                                Value="0.12">
                                                                 <EasingDoubleKeyFrame.EasingFunction>
                                                                     <CircleEase EasingMode="EaseOut" />
                                                                 </EasingDoubleKeyFrame.EasingFunction>
                                                             </EasingDoubleKeyFrame>
-                                                            <DiscreteDoubleKeyFrame KeyTime="0:0:0.35" Value="0.12" />
-                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0">
+                                                            <DiscreteDoubleKeyFrame
+                                                                KeyTime="0:0:0.35"
+                                                                Value="0.12" />
+                                                            <EasingDoubleKeyFrame
+                                                                KeyTime="0:0:0.5"
+                                                                Value="0">
                                                                 <EasingDoubleKeyFrame.EasingFunction>
                                                                     <SineEase EasingMode="EaseOut" />
                                                                 </EasingDoubleKeyFrame.EasingFunction>
@@ -62,26 +69,44 @@
                                                         <DoubleAnimationUsingKeyFrames
                                                             Storyboard.TargetName="clickBorder"
                                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
-                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="0" />
-                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="1" />
+                                                            <EasingDoubleKeyFrame
+                                                                KeyTime="0:0:0.0"
+                                                                Value="0" />
+                                                            <EasingDoubleKeyFrame
+                                                                KeyTime="0:0:0.15"
+                                                                Value="1" />
                                                         </DoubleAnimationUsingKeyFrames>
                                                         <DoubleAnimationUsingKeyFrames
                                                             Storyboard.TargetName="clickBorder"
                                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
-                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="0" />
-                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="1" />
+                                                            <EasingDoubleKeyFrame
+                                                                KeyTime="0:0:0.0"
+                                                                Value="0" />
+                                                            <EasingDoubleKeyFrame
+                                                                KeyTime="0:0:0.15"
+                                                                Value="1" />
                                                         </DoubleAnimationUsingKeyFrames>
-                                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border"
+                                                        <DoubleAnimationUsingKeyFrames
+                                                            Storyboard.TargetName="border"
                                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
-                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="0" />
-                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="1" />
+                                                            <EasingDoubleKeyFrame
+                                                                KeyTime="0:0:0.0"
+                                                                Value="0" />
+                                                            <EasingDoubleKeyFrame
+                                                                KeyTime="0:0:0.15"
+                                                                Value="1" />
                                                         </DoubleAnimationUsingKeyFrames>
                                                     </Storyboard>
                                                     <Storyboard x:Key="OnDeselected">
-                                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="border"
+                                                        <DoubleAnimationUsingKeyFrames
+                                                            Storyboard.TargetName="border"
                                                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
-                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="1" />
-                                                            <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="0" />
+                                                            <EasingDoubleKeyFrame
+                                                                KeyTime="0:0:0.0"
+                                                                Value="1" />
+                                                            <EasingDoubleKeyFrame
+                                                                KeyTime="0:0:0.15"
+                                                                Value="0" />
                                                         </DoubleAnimationUsingKeyFrames>
                                                     </Storyboard>
                                                 </ControlTemplate.Resources>
@@ -121,8 +146,7 @@
                                                                     <DataTrigger
                                                                         Binding="{Binding Path=IsSelected, RelativeSource={RelativeSource TemplatedParent}}"
                                                                         Value="False">
-                                                                        <Setter Property="Opacity"
-                                                                            Value="{Binding Path=(controls:TabControlAssist.TabHeaderInactiveOpacity), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabControl}}}" />
+                                                                        <Setter Property="Opacity" Value="{Binding Path=(controls:TabControlAssist.TabHeaderInactiveOpacity), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabControl}}}" />
                                                                     </DataTrigger>
                                                                     <DataTrigger
                                                                         Binding="{Binding Path=IsSelected, RelativeSource={RelativeSource TemplatedParent}}"
@@ -153,9 +177,7 @@
                                                 </Grid>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsSelected" Value="True">
-                                                        <Setter
-                                                            Property="controls:TabControlAssist.TabHeaderForeground"
-                                                            Value="{Binding Path=(controls:TabControlAssist.TabHeaderHighlightBrush), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabControl}}}" />
+                                                        <Setter Property="controls:TabControlAssist.TabHeaderForeground" Value="{Binding Path=(controls:TabControlAssist.TabHeaderHighlightBrush), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabControl}}}" />
                                                         <Trigger.EnterActions>
                                                             <BeginStoryboard Storyboard="{StaticResource OnSelected}" />
                                                         </Trigger.EnterActions>
@@ -164,9 +186,7 @@
                                                         </Trigger.ExitActions>
                                                     </Trigger>
                                                     <Trigger Property="IsSelected" Value="False">
-                                                        <Setter
-                                                            Property="controls:TabControlAssist.TabHeaderForeground"
-                                                            Value="{Binding Path=(controls:TabControlAssist.TabHeaderInactiveBrush), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabControl}}}" />
+                                                        <Setter Property="controls:TabControlAssist.TabHeaderForeground" Value="{Binding Path=(controls:TabControlAssist.TabHeaderInactiveBrush), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabControl}}}" />
                                                     </Trigger>
                                                     <Trigger Property="IsEnabled" Value="False">
                                                         <Setter Property="Opacity" Value="0.23" />
@@ -197,11 +217,17 @@
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition x:Name="ColumnDefinition0" />
-                                    <ColumnDefinition x:Name="ColumnDefinition1" Width="0" />
+                                    <ColumnDefinition
+                                        x:Name="ColumnDefinition1"
+                                        Width="0" />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition x:Name="RowDefinition0" Height="Auto" />
-                                    <RowDefinition x:Name="RowDefinition1" Height="*" />
+                                    <RowDefinition
+                                        x:Name="RowDefinition0"
+                                        Height="Auto" />
+                                    <RowDefinition
+                                        x:Name="RowDefinition1"
+                                        Height="*" />
                                 </Grid.RowDefinitions>
                                 <Border
                                     HorizontalAlignment="Stretch"
@@ -236,8 +262,12 @@
                                         Rows="1" />
                                 </Border>
 
-                                <Border x:Name="PART_SelectedContentHostBorder" Grid.Row="1">
-                                    <ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" />
+                                <Border
+                                    x:Name="PART_SelectedContentHostBorder"
+                                    Grid.Row="1">
+                                    <ContentPresenter
+                                        x:Name="PART_SelectedContentHost"
+                                        ContentSource="SelectedContent" />
                                 </Border>
                             </Grid>
 
@@ -250,15 +280,13 @@
                                     <Setter TargetName="HeaderPanelBorder" Property="Margin" Value="2,0,2,2" />
                                     <Setter TargetName="HeaderPanel" Property="Columns" Value="0" />
                                     <Setter TargetName="HeaderPanel" Property="Rows" Value="1" />
-                                    <Setter TargetName="HeaderSeparatorBorder" Property="BorderThickness"
-                                            Value="0,0,0,1" />
+                                    <Setter TargetName="HeaderSeparatorBorder" Property="BorderThickness" Value="0,0,0,1" />
                                 </Trigger>
                                 <Trigger Property="TabStripPlacement" Value="Left">
                                     <Setter TargetName="HeaderPanelBorder" Property="Grid.Row" Value="0" />
                                     <Setter TargetName="PART_SelectedContentHostBorder" Property="Grid.Row" Value="0" />
                                     <Setter TargetName="HeaderPanelBorder" Property="Grid.Column" Value="0" />
-                                    <Setter TargetName="PART_SelectedContentHostBorder" Property="Grid.Column"
-                                            Value="1" />
+                                    <Setter TargetName="PART_SelectedContentHostBorder" Property="Grid.Column" Value="1" />
                                     <Setter TargetName="ColumnDefinition0" Property="Width" Value="Auto" />
                                     <Setter TargetName="ColumnDefinition1" Property="Width" Value="*" />
                                     <Setter TargetName="RowDefinition0" Property="Height" Value="*" />
@@ -266,15 +294,13 @@
                                     <Setter TargetName="HeaderPanelBorder" Property="Margin" Value="2,2,0,2" />
                                     <Setter TargetName="HeaderPanel" Property="Columns" Value="1" />
                                     <Setter TargetName="HeaderPanel" Property="Rows" Value="0" />
-                                    <Setter TargetName="HeaderSeparatorBorder" Property="BorderThickness"
-                                            Value="0,0,1,0" />
+                                    <Setter TargetName="HeaderSeparatorBorder" Property="BorderThickness" Value="0,0,1,0" />
                                 </Trigger>
                                 <Trigger Property="TabStripPlacement" Value="Right">
                                     <Setter TargetName="HeaderPanelBorder" Property="Grid.Row" Value="0" />
                                     <Setter TargetName="PART_SelectedContentHostBorder" Property="Grid.Row" Value="0" />
                                     <Setter TargetName="HeaderPanelBorder" Property="Grid.Column" Value="1" />
-                                    <Setter TargetName="PART_SelectedContentHostBorder" Property="Grid.Column"
-                                            Value="0" />
+                                    <Setter TargetName="PART_SelectedContentHostBorder" Property="Grid.Column" Value="0" />
                                     <Setter TargetName="ColumnDefinition0" Property="Width" Value="*" />
                                     <Setter TargetName="ColumnDefinition1" Property="Width" Value="Auto" />
                                     <Setter TargetName="RowDefinition0" Property="Height" Value="*" />
@@ -282,8 +308,7 @@
                                     <Setter TargetName="HeaderPanelBorder" Property="Margin" Value="0,2,2,2" />
                                     <Setter TargetName="HeaderPanel" Property="Columns" Value="1" />
                                     <Setter TargetName="HeaderPanel" Property="Rows" Value="0" />
-                                    <Setter TargetName="HeaderSeparatorBorder" Property="BorderThickness"
-                                            Value="0,0,1,0" />
+                                    <Setter TargetName="HeaderSeparatorBorder" Property="BorderThickness" Value="0,0,1,0" />
                                 </Trigger>
                             </ControlTemplate.Triggers>
 
@@ -292,7 +317,9 @@
                 </Setter>
             </Style>
 
-            <x:Static x:Key="AppViewModel" Member="viewModels:AppViewModel.Instance" />
+            <x:Static
+                x:Key="AppViewModel"
+                Member="viewModels:AppViewModel.Instance" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

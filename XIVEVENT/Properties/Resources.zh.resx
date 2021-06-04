@@ -264,7 +264,7 @@
   <data name="HomeTabItem_EditEventItemText" xml:space="preserve">
     <value>编辑高级选项</value>
   </data>
-  <data name="SettingsTabItem_SoundText" xml:space="preserve">
+  <data name="SettingsTabItem_SoundHeaderText" xml:space="preserve">
     <value>声音</value>
   </data>
   <data name="SoundSettings_AdjustmentText" xml:space="preserve">
@@ -272,9 +272,6 @@
   </data>
   <data name="SoundSettings_AudioDevicesText" xml:space="preserve">
     <value>音频设备</value>
-  </data>
-  <data name="SoundSettings_AudioFilesText" xml:space="preserve">
-    <value>可用的音频文件</value>
   </data>
   <data name="SoundSettings_FilesText" xml:space="preserve">
     <value>如果您想使用更多音频文件，请将它们放在此应用程序的根目录中。</value>
@@ -299,5 +296,29 @@
   </data>
   <data name="HomeTabItem_SaveChangesText" xml:space="preserve">
     <value>保存更改</value>
+  </data>
+  <data name="SettingsTabItem_AudioDirectoriesHeaderText" xml:space="preserve">
+    <value>音频目录</value>
+  </data>
+  <data name="SettingsTabItem_AudioFilesHeaderText" xml:space="preserve">
+    <value>音频文件</value>
+  </data>
+  <data name="SoundSettings_AddDirectoryText" xml:space="preserve">
+    <value>添加目录</value>
+  </data>
+  <data name="SoundSettings_DeleteDirectoryText" xml:space="preserve">
+    <value>删除目录</value>
+  </data>
+  <data name="SoundSettings_DirectoriesText" xml:space="preserve">
+    <value>每个目录都经过顶级扫描。 您拥有的文件越多，应用程序的内存消耗就越大。</value>
+  </data>
+  <data name="SoundSettings_DirectoryText" xml:space="preserve">
+    <value>目录</value>
+  </data>
+  <data name="SoundSettings_EditDirectoryText" xml:space="preserve">
+    <value>编辑目录</value>
+  </data>
+  <data name="SoundSettings_FilesText1" xml:space="preserve">
+    <value>文件从可用目录的级别加载。</value>
   </data>
 </root>

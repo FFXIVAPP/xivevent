@@ -13,13 +13,17 @@ namespace XIVEVENT.ViewModels {
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Collections.Specialized;
     using System.Diagnostics;
     using System.Globalization;
     using System.IO;
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Xml.Linq;
 
     using NAudio.Wave;
+
+    using NLog;
 
     using Sharlayan.Core;
 
@@ -30,9 +34,13 @@ namespace XIVEVENT.ViewModels {
     using XIVEVENT.Utilities;
 
     public class AppViewModel : PropertyChangedBase {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         private static Lazy<AppViewModel> _instance = new Lazy<AppViewModel>(() => new AppViewModel());
 
         private string _appTitle;
+
+        private ObservableCollection<DirectoryItem> _audioCacheDirectories;
 
         private ObservableCollection<AudioFile> _audioFiles;
 
@@ -47,6 +55,8 @@ namespace XIVEVENT.ViewModels {
         private ObservableCollection<EventItem> _eventItems;
 
         private ObservableCollection<LanguageItem> _interfaceLanguages;
+
+        private bool _isAudioFilesLoading;
 
         private ConcurrentDictionary<string, string> _locale;
 
@@ -110,6 +120,11 @@ namespace XIVEVENT.ViewModels {
                     Title = "한국어",
                     CultureInfo = new CultureInfo("ko"),
                 });
+        }
+
+        public ObservableCollection<DirectoryItem> AudioCacheDirectories {
+            get => this._audioCacheDirectories ??= new ObservableCollection<DirectoryItem>();
+            set => this.SetProperty(ref this._audioCacheDirectories, value);
         }
 
         public ObservableCollection<AudioFile> AudioFiles {
@@ -265,6 +280,13 @@ namespace XIVEVENT.ViewModels {
             set => this.SetProperty(ref this._systemAudioDevices, value);
         }
 
+        public ConcurrentDictionary<int, Process> GameInstances { get; set; } = new ConcurrentDictionary<int, Process>();
+
+        public bool IsAudioFilesLoading {
+            get => this._isAudioFilesLoading;
+            set => this.SetProperty(ref this._isAudioFilesLoading, value);
+        }
+
         public void RefreshAudioDevices() {
             this.SystemAudioDevices.Clear();
 
@@ -292,8 +314,53 @@ namespace XIVEVENT.ViewModels {
             }
         }
 
+        public void RefreshAudioCacheDirectories() {
+            this.AudioCacheDirectories.Clear();
+
+            Settings.Default.AudioCacheDirectories ??= new StringCollection();
+
+            List<String> missingDirectories = new List<string>();
+
+            string baseDirectory = Directory.GetCurrentDirectory();
+
+            this.AudioCacheDirectories.Add(
+                new DirectoryItem {
+                    SettingsDefault = baseDirectory,
+                    Current = baseDirectory,
+                });
+
+            // build up list of good and missing directories
+            foreach (string? cacheDirectory in Settings.Default.AudioCacheDirectories) {
+                if (cacheDirectory is null) {
+                    continue;
+                }
+
+                if (Directory.Exists(cacheDirectory)) {
+                    this.AudioCacheDirectories.Add(
+                        new DirectoryItem {
+                            SettingsDefault = cacheDirectory,
+                            Current = cacheDirectory,
+                        });
+                }
+                else {
+                    missingDirectories.Add(cacheDirectory);
+                }
+            }
+
+            // clean settings
+            foreach (string directoryPath in missingDirectories) {
+                Settings.Default.AudioCacheDirectories.Remove(directoryPath);
+            }
+        }
+
         public void RefreshAudioCache() {
+            this.IsAudioFilesLoading = true;
+
             this.AudioFiles.Clear();
+            foreach ((string _, CachedAudioFile cachedAudioFile) in this.CachedAudioFiles) {
+                cachedAudioFile.Dispose();
+            }
+
             this.CachedAudioFiles.Clear();
 
             List<string> filters = new List<string> {
@@ -301,23 +368,44 @@ namespace XIVEVENT.ViewModels {
                 "*.mp3",
             };
 
-            string baseDirectory = Directory.GetCurrentDirectory();
+            // run on a background thread to prevent ui locks
+            DispatcherHelper.Invoke(
+                () => {
+                    foreach (string filter in filters) {
+                        foreach (DirectoryItem directoryItem in this.AudioCacheDirectories) {
+                            if (string.IsNullOrWhiteSpace(directoryItem.Current)) {
+                                continue;
+                            }
 
-            foreach (string filter in filters) {
-                IEnumerable<FileInfo> filteredFiles = Directory.GetFiles(baseDirectory, filter, SearchOption.AllDirectories).Select(file => new FileInfo(file));
-                foreach (FileInfo fileInfo in filteredFiles) {
-                    this.AudioFiles.Add(
-                        new AudioFile {
-                            Name = fileInfo.Name,
-                            Type = fileInfo.Extension.Trim('.').ToUpperInvariant(),
-                            Size = FileUtilities.SizeSuffix(fileInfo.Length),
-                        });
+                            IEnumerable<FileInfo> filteredFiles = Directory.GetFiles(directoryItem.Current, filter, SearchOption.TopDirectoryOnly).Select(file => new FileInfo(file));
+                            foreach (FileInfo fileInfo in filteredFiles.AsParallel()) {
+                                if (this.AudioFiles.Any(file => string.Equals(file.Name, fileInfo.Name, StringComparison.OrdinalIgnoreCase))) {
+                                    // we already have loaded a file with this name
+                                    continue;
+                                }
 
-                    this.CachedAudioFiles.TryAdd(fileInfo.Name, new CachedAudioFile(fileInfo.FullName));
-                }
-            }
+                                this.AudioFiles.Add(
+                                    new AudioFile {
+                                        Name = fileInfo.Name,
+                                        Type = fileInfo.Extension.Trim('.').ToUpperInvariant(),
+                                        Size = FileUtilities.SizeSuffix(fileInfo.Length),
+                                    });
+
+                                Task.Run(
+                                    () => {
+                                        try {
+                                            this.CachedAudioFiles.TryAdd(fileInfo.Name, new CachedAudioFile(fileInfo.FullName));
+                                        }
+                                        catch (Exception ex) {
+                                            Logging.Log(Logger, ex);
+                                        }
+                                    });
+                            }
+                        }
+                    }
+
+                    this.IsAudioFilesLoading = false;
+                });
         }
-
-        public ConcurrentDictionary<int, Process> GameInstances { get; set; } = new ConcurrentDictionary<int, Process>();
     }
 }

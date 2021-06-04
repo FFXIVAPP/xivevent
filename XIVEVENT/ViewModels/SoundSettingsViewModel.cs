@@ -23,11 +23,6 @@ namespace XIVEVENT.ViewModels {
         private DirectSoundDeviceInfo _selectedAudioDevice;
 
         public SoundSettingsViewModel() {
-            this.RefreshAudioFilesCommand = new DelegatedCommand(
-                _ => {
-                    AppViewModel.Instance.RefreshAudioCache();
-                });
-
             this.RefreshAudioDevicesCommand = new DelegatedCommand(
                 _ => {
                     AppViewModel.Instance.RefreshAudioDevices();
@@ -35,13 +30,14 @@ namespace XIVEVENT.ViewModels {
 
             this.TestAudioFilesCommand = new DelegatedCommand(
                 _ => {
-                    EventExecutionHelper.PlayCachedAudioFile(AppViewModel.Instance.AudioFiles.FirstOrDefault()?.Name, Settings.Default.MasterVolume);
+                    string audioFileName = AppViewModel.Instance.AudioFiles.FirstOrDefault()?.Name;
+                    if (audioFileName is not null) {
+                        EventExecutionHelper.PlayCachedAudioFile(audioFileName, Settings.Default.MasterVolume);
+                    }
                 });
         }
 
         public static SoundSettingsViewModel Instance => _instance.Value;
-
-        public DelegatedCommand RefreshAudioFilesCommand { get; }
 
         public DelegatedCommand RefreshAudioDevicesCommand { get; }
 
